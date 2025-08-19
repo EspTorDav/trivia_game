@@ -1,0 +1,52 @@
+[
+  {
+    "question": "Capital de Francia?",
+    "options": ["Berlín", "Madrid", "París", "Lisboa"],
+    "correct_index": 2
+  },
+  {
+    "question": "2 + 2?",
+    "options": ["3", "4", "5", "6"],
+    "correct_index": 1
+  },
+  {
+    "question": "Color del cielo en un día despejado?",
+    "options": ["Rojo", "Verde", "Azul", "Amarillo"],
+    "correct_index": 2
+  },
+  {
+    "question": "Planeta conocido como el planeta rojo?",
+    "options": ["Venus", "Marte", "Júpiter", "Saturno"],
+    "correct_index": 1
+  },
+  {
+    "question": "¿Cuántos continentes hay en el mundo?",
+    "options": ["5", "6", "7", "8"],
+    "correct_index": 2
+  },
+  {
+    "question": "Lenguaje de programación usado para este juego?",
+    "options": ["Python", "Java", "C++", "Ruby"],
+    "correct_index": 0
+  },
+  {
+    "question": "Animal más rápido en tierra?",
+    "options": ["León", "Guepardo", "Tigre", "Caballo"],
+    "correct_index": 1
+  },
+  {
+    "question": "Elemento químico con símbolo O?",
+    "options": ["Oro", "Oxígeno", "Osmio", "Plata"],
+    "correct_index": 1
+  },
+  {
+    "question": "Deporte con raqueta y volante?",
+    "options": ["Tenis", "Bádminton", "Ping-pong", "Squash"],
+    "correct_index": 1
+  },
+  {
+    "question": "Autor de 'Romeo y Julieta'?",
+    "options": ["Shakespeare", "Cervantes", "Hemingway", "Tolstói"],
+    "correct_index": 0
+  }
+]

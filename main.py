@@ -1,11 +1,23 @@
+import json
 from src.game import TriviaGame
-
 
 if __name__ == "__main__":
     game = TriviaGame()
-    game.add_question("¿Capital de Francia?", ["Berlín", "Madrid", "París", "Lisboa"], 2)
-    game.add_question("¿2 + 2?", ["3", "4", "5", "6"], 1)
 
+     # Cargar preguntas desde JSON
+    try:
+        with open("data/questions.json", "r", encoding="utf-8") as f:
+            questions = json.load(f)
+            for q in questions:
+                game.add_question(q["question"], q["options"], q["correct_index"])
+    except FileNotFoundError:
+        print("No se encontró el archivo de preguntas. Asegúrate de tener data/questions.json")
+        exit(1)
+    except Exception as e:
+        print(f"Error al cargar preguntas: {e}")
+        exit(1)
+
+    # Juego en consola
     while game.has_more_questions():
         q = game.questions[game.current_question_index]
         print(f"\nPregunta {game.current_question_index + 1}: {q['question']}")
