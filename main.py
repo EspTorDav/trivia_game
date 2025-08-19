@@ -23,11 +23,18 @@ if __name__ == "__main__":
         print(f"\nPregunta {game.current_question_index + 1}: {q['question']}")
         for i, option in enumerate(q['options']):
             print(f"{i + 1}. {option}")
-        try:
-            ans = int(input("Selecciona una opción (1-4): ")) - 1
-        except ValueError:
-            print("Entrada inválida, se cuenta como incorrecta")
-            ans = -1
+        
+        valid_input = False
+        while not valid_input:
+            try:
+                ans = int(input("Selecciona una opción (1-4): "))
+                if 0 <= ans < 4:
+                    valid_input = True
+                else:
+                    print("Opción inválida, por favor selecciona un número del 1 al 4.")
+            except ValueError:
+                print("Entrada inválida, se cuenta como incorrecta")
+                ans = -1
 
         if game.answer_question(ans):
             print("¡Correcto!")
