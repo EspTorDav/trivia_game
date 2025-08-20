@@ -40,3 +40,11 @@ def test_no_duplicate_questions():
             seen_questions.add(text)
 
     assert not duplicates, f"❌ Preguntas duplicadas encontradas: {duplicates}"
+
+
+def test_valid_correct_index():
+    """Verifica que el índice correcto esté siempre entre 0 y 3"""
+    questions = test_questions_json_structure(JSON_FILE)
+    for q in questions:
+        assert 0 <= q["correct_index"] < len(q["options"]), \
+            f"❌ Índice fuera de rango en la pregunta: {q['question']}"
