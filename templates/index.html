@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Menú principal</h2>
+    <a href="{{ url_for('login') }}">Iniciar sesión</a><br>
+    <a href="{{ url_for('game') }}">Jugar</a>
+{% endblock %}

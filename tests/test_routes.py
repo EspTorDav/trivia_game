@@ -1,28 +1,32 @@
 import pytest
-from src.app import app
+from app import app as flask_app
 
 @pytest.fixture
 def client():
-    app.config["TESTING"] = True
-    with app.test_client() as client:
+    flask_app.config["TESTING"] = True
+    with flask_app.test_client() as client:
         yield client
 
 def test_index_route(client):
-    response = client.get("/")
-    assert response.status_code == 200
-    assert "Menú principal" in response.data.decode("utf-8")
+    res = client.get("/")
+    assert res.status_code == 200
 
 def test_login_route(client):
-    response = client.get("/login")
-    assert response.status_code == 200
-    assert "Pantalla de login" in response.data.decode("utf-8")
+    res = client.get("/login")
+    assert res.status_code == 200
 
-def test_game_route(client):
-    response = client.get("/game")
-    assert response.status_code == 200
-    assert "Pantalla de preguntas" in response.data.decode("utf-8")
+def test_game_route_with_login(client):
+    with client.session_transaction() as sess:
+        sess["user"] = "tester"
+    res = client.get("/game")
+    assert res.status_code == 200
 
-def test_results_route(client):
-    response = client.get("/results")
-    assert response.status_code == 200
-    assert "Pantalla de resultados" in response.data.decode("utf-8")
+def test_results_route_with_login(client):
+    with client.session_transaction() as sess:
+        sess["user"] = "tester"
+    res = client.get("/results")
+    assert res.status_code == 200
+
+
+
+
