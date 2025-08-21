@@ -1,12 +1,22 @@
 {% extends "base.html" %}
 
-{% block title %}Juego{% endblock %}
-
 {% block content %}
-<div class="game-container">
-    <h2>Trivia Game</h2>
-    <p>Aquí se mostrarán las preguntas y opciones.</p>
-    <a href="{{ url_for('results') }}" class="btn">Ver resultados</a>
-</div>
+<h2>{{ question.question }}</h2>
+
+<form method="POST">
+    {% for option in question.options %}
+        <div>
+            <input type="radio" id="option{{ loop.index0 }}" name="answer" value="{{ loop.index0 }}" required>
+            <label for="option{{ loop.index0 }}">{{ option }}</label>
+        </div>
+    {% endfor %}
+    <button type="submit">Responder</button>
+</form>
+
+<p>Puntaje actual: {{ game_instance.current_score }}</p>
 {% endblock %}
+
+
+
+
 
