@@ -1,6 +1,24 @@
 {% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
 {% block content %}
-    <h2>Menú principal</h2>
-    <a href="{{ url_for('login') }}">Iniciar sesión</a><br>
-    <a href="{{ url_for('game') }}">Jugar</a>
+<div id="background">
+    <!-- Placeholder para fondo animado -->
+</div>
+
+<!-- Música: placeholder -->
+<audio id="bg-music" autoplay loop>
+    <source src="{{ url_for('static', filename='audio/background.mp3') }}" type="audio/mpeg">
+    Tu navegador no soporta audio.
+</audio>
+
+<div class="container">
+    <h1>Bienvenido a Trivia</h1>
+    <div class="buttons">
+        <a href="{{ url_for('game') }}"><button>Jugar</button></a>
+        <a href="{{ url_for('login') }}"><button>Login</button></a>
+    </div>
+</div>
 {% endblock %}
+

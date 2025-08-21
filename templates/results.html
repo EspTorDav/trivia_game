@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Resultados{% endblock %}
+
+{% block content %}
+<div class="results-container">
+    <h2>¡Resultados del juego!</h2>
+    <p>Puntuación: 0</p>
+    <p>Correctas: 0 / 0</p>
+    <a href="{{ url_for('index') }}" class="btn">Volver al inicio</a>
+</div>
+{% endblock %}
+

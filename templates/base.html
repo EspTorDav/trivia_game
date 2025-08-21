@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Trivia </title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta charset="UTF-8">
+  <title>{% block title %}Trivia{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Trivia </h1>
-    </header>
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+  <header>
+    <h1>Trivia Game</h1>
+    <nav>
+      <a href="{{ url_for('index') }}">Inicio</a> |
+      <a href="{{ url_for('login') }}">Login</a> |
+      <a href="{{ url_for('game') }}">Juego</a> |
+      <a href="{{ url_for('results') }}">Resultados</a>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+        <p>&copy; 2025 Trivia Game</p>
+    </footer>
 </body>
 </html>
+
