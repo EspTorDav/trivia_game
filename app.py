@@ -1,10 +1,14 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from src.game import TriviaGame, load_questions_from_json
+from src.api import api_bp
 import copy
 from functools import wraps
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
+
+#Registrar blueprint
+app.register_blueprint(api_bp)
 
 # Usuarios en memoria
 users = {"tester": "tester"}
